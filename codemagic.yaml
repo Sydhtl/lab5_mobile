@@ -1,4 +1,4 @@
 workflows:
   my-workflow:
-     environment
+     environment:
       flutter:beta
