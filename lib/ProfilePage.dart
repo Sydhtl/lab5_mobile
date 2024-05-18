@@ -45,27 +45,27 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Center(
-          child: Text(
-            factoryNames[selectedIndex],
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 25.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.settings),
-            color: Colors.black,
-            onPressed: () {
-              _onItemTapped(2); // Navigate to SettingsPage
-            },
-          ),
-        ],
+     appBar: AppBar(
+  title: Center(
+    child: Text(
+      factoryNames[selectedIndex],
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 25.0,
+        fontWeight: FontWeight.bold,
       ),
+    ),
+  ),
+  actions: [
+    IconButton(
+      icon: Icon(Icons.settings),
+      color: Colors.black,
+      onPressed: () {
+        _onItemTapped(2); // Navigate to SettingsPage
+      },
+    ),
+  ],
+),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
