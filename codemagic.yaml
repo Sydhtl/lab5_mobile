@@ -1,0 +1,5 @@
+workflows:
+  my-workflow:
+    dcripts:
+      - name: say hello
+        script:echo "hello CODEMAGICIAN!"
