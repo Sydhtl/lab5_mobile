@@ -1,9 +1,11 @@
-package java.dev.flutterexplained.ci_cd_tutorial;
+package flutterexplained.ci_cd_tutorial;
 
 import androidx.test.rule.ActivityTestRule;
 import dev.flutter.plugins.integration_test.FlutterTestRunner;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
+import org.junit.Test;
+
 
 @RunWith(FlutterTestRunner.class)
 public class MainActivityTest {
