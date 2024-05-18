@@ -7,34 +7,29 @@ workflows:
       groups:
         - google_credentials
       flutter: stable
-      xcode: latest # Set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
+      xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
       cocoapods: default
       vars:
-        FIREBASE_PROJECT: "lab5-mobile-416bb"
-        ANDROID_SDK_ROOT: /Users/runner/Library/Android/sdk
-        PATH: $PATH:/Users/runner/Library/Android/sdk/tools:/Users/runner/Library/Android/sdk/platform-tools
+        FIREBASE_PROJECT:  "lab5-mobile-416bb"
     scripts:
-      - name: Get Flutter packages
-        script: |
-          flutter packages pub get
-      - name: Build APK with Flutter
-        script: |
-          flutter doctor -v
-          flutter clean
-          flutter pub get
-          flutter build apk --debug --verbose
-      - name: Create debug and test APK
-        script: |
-          set -ex
-          cd android
-          ./gradlew app:assembleAndroidTest
-          ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/integration_test/app_test.dart"
-      - name: Run Firebase Test Lab Tests
-        script: |
-          set -ex
+    - name: Get Flutter packages
+      script: |
+        flutter packages pub get
+    - name: Build APK with Flutter
+      script: |
+        flutter build apk --debug
+    - name: Create debug and test APK
+      script: |
+        set - ex
+        cd android
+        ./gradlew app:assembleAndroidTest
+        ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/intergration_test/app_test.dart"
+    - name: Run Firebase Test Lab Tests
+      script: |
+       set -ex
           echo $GCLOUD_KEY_FILE | base64 --decode > ./gcloud_key_file.json
           gcloud auth activate-service-account --key-file=gcloud_key_file.json
-          gcloud --quiet config set project $FIREBASE_PROJECT
+          gcloud --quite config set project $FIREBASE_PROJECT
 
           gcloud firebase test android run \
             --type instrumentation \
@@ -46,3 +41,4 @@ workflows:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
+
