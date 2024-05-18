@@ -8,14 +8,14 @@ workflows:
       xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
       cocoapods: default
       vars:
-      FIREBASE_PROJECT:  "lab5-mobile-416bb"
-    script:
+        FIREBASE_PROJECT:  "lab5-mobile-416bb"
+    scripts:
     - name: Get Flutter packages
-    script: |
-      flutter packages pub get
+      script: |
+        flutter packages pub get
     - name: Build APK with Flutter
       script: |
-      flutter build apk --debug
+        flutter build apk --debug
     - name: Create debug and test APK
       script: |
         set - ex
@@ -24,4 +24,4 @@ workflows:
         ./gradlew app:assembleDebug -Ptarget="$CM_BUILD_DIR/intergration_test/app_test.dart"
     - name: Run Firebase Test Lab Tests
       script: |
-      set -ex
+        set -ex
