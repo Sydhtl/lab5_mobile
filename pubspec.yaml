@@ -39,6 +39,8 @@ dependencies:
   syncfusion_flutter_gauges: ^25.1.42
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 
