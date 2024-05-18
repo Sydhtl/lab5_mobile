@@ -746,25 +746,26 @@ class InvitationPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Submit',
-                  style: TextStyle(fontSize: 20),
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40.0),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 140, vertical: 12),
-                  primary: Colors.grey.shade400,
-                ),
-              ),
-            ),
+          SizedBox(height: 20),
+Center(
+  child: ElevatedButton(
+    onPressed: () {
+      Navigator.pop(context);
+    },
+    child: Text(
+      'Submit',
+      style: TextStyle(fontSize: 20),
+    ),
+    style: ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40.0),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 140, vertical: 12),
+      backgroundColor: Colors.grey.shade400, // Replace primary with backgroundColor
+    ),
+  ),
+),
+
           ],
         ),
       ),
